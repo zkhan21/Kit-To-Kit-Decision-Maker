@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kit-To-Kit Decision Maker</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body style="background-image: url('{{ url_for('static', filename='images/bosch.jpg') }}');">
+    <div class="container">
+        <h1>Kit-To-Kit Decision Maker</h1>
+        <form action="/" method="post">
+            <label for="part_number_a">Enter Part Number A:</label>
+            <input type="text" id="part_number_a" name="part_number_a" value="{{ request.form['part_number_a'] if request.form['part_number_a'] else '' }}" required>
+    
+            <label for="part_number_b">Enter Part Number B:</label>
+            <input type="text" id="part_number_b" name="part_number_b" value="{{ request.form['part_number_b'] if request.form['part_number_b'] else '' }}" required>
+    
+            <input type="submit" value="Submit">
+        </form>
+        
+        <div class="results">
+            {% if results %}
+                <p>Is the 10-digit the same? {{ results['ten_digit_same'] }}</p>
+                <p>Is the 'new' F/G packaged in AtL? {{ results['atl_result'] }}</p>
+                <!-- <p>Is there a supersession between 'Old' and 'New'? {{ results['supersession_result'] }}</p> -->
+                <p>Is PAK the same? {{ results['pak_same'] }}</p>
+                <p>Is CoO the same? {{ results['coo_same'] }}</p>
+                <div class="kit-to-kit-heading" style="text-align: center;">Kit-To-Kit Potential?</div>
+                <div class="decision-box {{ 'yes-decision' if results['kit_to_kit_potential'] == 'YES' else 'no-decision' }}" style="margin: auto; display: block; width: 150px;">
+                    <span class="decision-text" style="text-align: center; display: block;">{{ results['kit_to_kit_potential'] }}</span>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
