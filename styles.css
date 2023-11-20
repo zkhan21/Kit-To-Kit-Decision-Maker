@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('{{ url_for('static', filename='images/bosch.jpg') }}');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    position: relative; /* For centering the child absolute elements */
+}
+
+h1 {
+    text-align: center;
+}
+
+label, input {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.results {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Styles for the Kit-To-Kit Potential section */
+.kit-to-kit-potential {
+    display: flex; /* Use flexbox to align children */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically, if needed */
+    margin-top: 20px;
+}
+
+.kit-to-kit-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px; /* Space between the heading and the decision box */
+}
+
+.decision-box {
+    display: block;
+    margin: auto; /* This centers the box in the container */
+    padding: 10px;
+    width: 150px; /* Width of the decision box */
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.yes-decision, .no-decision {
+    color: black; /* Text color inside the decision box */
+    text-align: center; /* Centers the text horizontally */
+}
+
+.yes-decision {
+    background-color: green;
+    color: black; /* Text color inside the decision box */
+    text-align: center; /* Centers the text horizontally */
+}
+
+.no-decision {
+    background-color: red;
+    color: black; /* Text color inside the decision box */
+    text-align: center; /* Centers the text horizontally */
+}
+
+.decision-text {
+    font-size: 20px; /* Font size of the decision text */
+    display: block; /* This will ensure it takes up the full width of the decision box */
+}
